@@ -6,6 +6,8 @@
 
     <string name="action_settings">设置</string>
     <string name="action_about">关于</string>
+    <string name="action_outsys">退出程序</string>
+    <string name="action_switch_theme">主题换肤</string>
     <string name="_string_robot_chat">机器人聊天</string>
     <string name="_string_system_info">系统信息</string>
     <string name="_string_media">音乐</string>
@@ -80,6 +82,8 @@
     <string name="media_mobile_network_play">移动网络播放</string>
     <string name="media_ok_mobile_network_play">使用移动网络播放</string>
     <string name="media_no_mobile_network_play">不使用移动网络播放</string>
+
+    <string name="setting_system_systime_check_time">设置系统信息-网络检测刷新时间</string>
 
     <string name="media_mobile_scen_file_size_title">设置扫描音乐最小限制</string>
     <string name="media_mobile_scen_file_size">允许系统扫描最小文件</string>

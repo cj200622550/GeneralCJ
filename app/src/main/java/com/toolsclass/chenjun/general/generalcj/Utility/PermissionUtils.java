@@ -40,6 +40,7 @@ public class PermissionUtils {
     public static final int CODE_READ_EXTERNAL_STORAGE = 7;
     public static final int CODE_WRITE_EXTERNAL_STORAGE = 8;
     public static final int CODE_MOUNT_UNMOUNT_FILESYSTEMS = 9;
+    public static final int CODE_READ_LOGS = 10;
     public static final int CODE_MULTI_PERMISSION = 100;
 
     public static final String PERMISSION_RECORD_AUDIO = Manifest.permission.RECORD_AUDIO;
@@ -52,6 +53,7 @@ public class PermissionUtils {
     public static final String PERMISSION_READ_EXTERNAL_STORAGE = Manifest.permission.READ_EXTERNAL_STORAGE;
     public static final String PERMISSION_WRITE_EXTERNAL_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
     public static final String PERMISSION_MOUNT_UNMOUNT_FILESYSTEMS = Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS;
+    public static final String PERMISSION_READ_LOGS = Manifest.permission.READ_LOGS;
     public static final String PERMISSION_SEND_SMS = Manifest.permission.SEND_SMS;
 
     private static final String[] requestPermissions = {
@@ -65,6 +67,7 @@ public class PermissionUtils {
             PERMISSION_READ_EXTERNAL_STORAGE,
             PERMISSION_WRITE_EXTERNAL_STORAGE,
             PERMISSION_MOUNT_UNMOUNT_FILESYSTEMS,
+            PERMISSION_READ_LOGS,
             PERMISSION_SEND_SMS
     };
 

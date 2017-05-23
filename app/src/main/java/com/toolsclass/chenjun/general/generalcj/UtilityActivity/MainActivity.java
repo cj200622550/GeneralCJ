@@ -1,5 +1,6 @@
 package com.toolsclass.chenjun.general.generalcj.UtilityActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -129,25 +130,34 @@ public class MainActivity extends BaseActivity {
                         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
-                    case R.id.navigation_item_custom_view:
+                    case R.id.navigation_item_system_info:
                         mToolbar.setTitle(getString(R.string._string_system_info));
                         switchFragment(SystemystemInfoFragment.class);
-                        break;
-                    case R.id.navigation_item_snackbar:
-                        mToolbar.setTitle("Snackbar演示");
-//                        switchFragment(SnackBarFragment.class);
                         break;
                     case R.id.navigation_item_setting:
                         mToolbar.setTitle(getString(R.string.action_settings));
                         switchFragment(SettingFragment.class);
                         break;
                     case R.id.navigation_item_switch_theme:
-                        mToolbar.setTitle("主题换肤");
+                        mToolbar.setTitle(getString(R.string.action_switch_theme));
                         switchFragment(ChangeSkinFragment.class);
                         break;
                     case R.id.navigation_item_about:
-                        mToolbar.setTitle("关于");
+                        mToolbar.setTitle(getString(R.string.action_about));
                         switchFragment(AboutFragment.class);
+                        break;
+                    case R.id.navigation_item_outsys:
+                        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(MainActivity.this);
+                        builder.setTitle("退出提示");
+                        builder.setMessage("确定要退出系统？");
+                        builder.setNegativeButton("取消", null);
+                        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                System.exit(0);
+                            }
+                        });
+                        builder.show();
                         break;
                     default:
                         break;
@@ -228,13 +238,18 @@ public class MainActivity extends BaseActivity {
             }
         }
 
-        long currentTick = System.currentTimeMillis();
-        if (currentTick - lastBackKeyDownTick > MAX_DOUBLE_BACK_DURATION) {
-            SnackBarUtils.makeShort(mDrawerLayout, "再按一次退出").success();
-            lastBackKeyDownTick = currentTick;
-        } else {
-            finish();
-            System.exit(0);
-        }
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
+
+//        long currentTick = System.currentTimeMillis();
+//        if (currentTick - lastBackKeyDownTick > MAX_DOUBLE_BACK_DURATION) {
+//            SnackBarUtils.makeShort(mDrawerLayout, "再按一次退出").success();
+//            lastBackKeyDownTick = currentTick;
+//        } else {
+//            finish();
+//            System.exit(0);
+//        }
     }
 }

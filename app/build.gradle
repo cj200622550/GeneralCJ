@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'bugly' // 注：需要配置符号表时，使用bugly插件
+bugly {
+    appId = 'ab1852e1ad'
+    appKey = 'c5e6ee2d-0b2d-4f01-a916-01e454fe43e4'
+}
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -9,12 +13,19 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi' , 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+
     }
 
 
     buildTypes {
         release {
-            minifyEnabled false
+            // 开启混淆
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -33,6 +44,7 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
 //    compile 'com.tencent.bugly:crashreport_upgrade:1.2.5'
     // 腾讯Dbug 反馈
+    compile 'com.tencent.bugly:crashreport:latest.release'
 //    compile 'com.zhy:okhttputils:2.6.2'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile 'me.wcy:lrcview:1.4.1'

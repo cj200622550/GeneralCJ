@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -42,7 +43,7 @@ public class BookFragment extends BaseFragment implements View.OnClickListener {
     private XRecyclerView mRecyclerView;
     private BookAdapter mBookAdapter;
     private FloatingActionButton mFABSearch;
-    private EditText mETInput;  //弹出编辑框
+    private EditText mETInput;  // 弹出编辑框
     private AlertDialog mInputDialog; // 弹出查找窗口
 
     private int mCurrentAction = ACTION_REFRESH;

@@ -3,6 +3,10 @@ package com.toolsclass.chenjun.general.generalcj.AppSystemInfo.utility;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.telephony.PhoneStateListener;
+import android.telephony.SignalStrength;
 import android.telephony.TelephonyManager;
 
 import com.toolsclass.chenjun.general.generalcj.logger.LogUtils;
@@ -12,6 +16,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.R.attr.readPermission;
+import static android.R.attr.track;
+import static android.R.attr.type;
+import static android.content.Context.WIFI_SERVICE;
 
 /**
  * 作者：陈骏 on 2017/5/18 11:22
@@ -36,7 +45,7 @@ public class NetworkUtils {
             list.add(info2.getTypeName().equals("MOBILE") ? "GPRS网络" : "WIFI"); //getTypeName 5
             list.add(String.valueOf(info2.getType())); //getType 6
         }
-        LogUtils.e(list == null ? "没有数据":list.toString());
+//        LogUtils.e(list == null ? "没有数据":list.toString());
         return list;
     }
 
@@ -136,5 +145,36 @@ public class NetworkUtils {
                 }
             }
         }
+    }
+
+//    public static String getGsmSignal(Context context){
+//
+//    }
+
+    /**
+     * 获取wifi信息
+     * @param context
+     * @return
+     */
+    public static List<String> getWifiSignal(Context context){
+        List<String> list = new ArrayList();
+        WifiManager wifi_service = (WifiManager) context.getSystemService(WIFI_SERVICE);
+        WifiInfo wifiInfo = wifi_service.getConnectionInfo();
+        list.add(wifiInfo.getBSSID()); // BSSID 0
+        list.add(wifiInfo.getSSID()); // SSID 1
+        list.add(String.valueOf(wifiInfo.getIpAddress())); // 获取IP地址 2
+        list.add(wifiInfo.getMacAddress());//获取MAC地址 3
+        list.add(String.valueOf(wifiInfo.getNetworkId()));//获取网络ID 4
+        list.add(String.valueOf(wifiInfo.getLinkSpeed()));//获取连接速度，可以让用户获知这一信息 5
+        int Rssi = wifiInfo.getRssi();
+        if (Rssi == 0 && Rssi > -50 ){ //得到的值是一个0到-100的区间值，是一个int型数据，其中0到-50表示信号最好，-50到-70表示信号偏差，小于-70表示最差，有可能连接不上或者掉线 6
+            list.add("好:" + Rssi);
+        } else if (Rssi == -50 && Rssi > -70 ){
+            list.add("差:" + Rssi);
+        } else {
+            list.add("不好或没有信号:" + Rssi);
+        }
+//        LogUtils.i(list.toString());
+        return list;
     }
 }

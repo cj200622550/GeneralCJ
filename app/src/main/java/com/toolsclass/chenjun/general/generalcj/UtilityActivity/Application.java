@@ -1,16 +1,14 @@
 package com.toolsclass.chenjun.general.generalcj.UtilityActivity;
 
-import android.os.Environment;
-
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.tencent.bugly.crashreport.CrashReport;
 import com.toolsclass.chenjun.general.generalcj.AppMedia.application.AppCache;
 import com.toolsclass.chenjun.general.generalcj.AppMedia.http.HttpInterceptor;
 import com.toolsclass.chenjun.general.generalcj.AppMedia.utils.Preferences;
 import com.toolsclass.chenjun.general.generalcj.Libs.sharelibrary.Share;
 import com.zhy.http.okhttp.OkHttpUtils;
 
-import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -30,6 +28,12 @@ public class Application extends SolidApplication {
         initImageLoader(); // 初始化图片加载框架
         initOkHttpUtils(); // 初始化OhHttp框架
         initShare(); // 初始化自定义配置文件
+        /* Bugly SDK初始化
+        * 参数1：上下文对象
+        * 参数2：APPID，平台注册时得到,注意替换成你的appId
+        * 参数3：是否开启调试模式，调试模式下会输出'CrashReport'tag的日志
+        */
+        CrashReport.initCrashReport(getApplicationContext(), "ab1852e1ad", true);
     }
 
     private void initShare() {

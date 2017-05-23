@@ -41,7 +41,6 @@ public class MediaFragment extends BaseFragment implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        LogUtils.e("点击了");
         switch (view.getId()) {
             case R.id.cv_mobile_file_size:
                 showListAlertDialog();

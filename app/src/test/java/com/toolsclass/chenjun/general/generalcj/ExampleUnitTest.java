@@ -2,6 +2,7 @@ package com.toolsclass.chenjun.general.generalcj;
 
 import com.toolsclass.chenjun.general.generalcj.Setting.Utility.CpuUtility;
 import com.toolsclass.chenjun.general.generalcj.Utility.MovieUtility;
+import com.toolsclass.chenjun.general.generalcj.Utility.TimeUtility;
 import com.toolsclass.chenjun.general.generalcj.logger.LogUtils;
 
 import org.junit.Test;
@@ -23,8 +24,7 @@ import static org.junit.runner.JUnitCore.main;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
-        main();
+        System.out.print(TimeUtility.getNowDate());
     }
 
     public static void getProcess() {

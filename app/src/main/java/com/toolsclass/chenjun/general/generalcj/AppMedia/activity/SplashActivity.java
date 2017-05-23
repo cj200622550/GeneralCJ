@@ -15,6 +15,7 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.tencent.bugly.crashreport.CrashReport;
 import com.toolsclass.chenjun.general.generalcj.AppMedia.application.AppCache;
 import com.toolsclass.chenjun.general.generalcj.AppMedia.http.HttpCallback;
 import com.toolsclass.chenjun.general.generalcj.AppMedia.http.HttpClient;
@@ -27,6 +28,7 @@ import com.toolsclass.chenjun.general.generalcj.AppMedia.utils.permission.Permis
 import com.toolsclass.chenjun.general.generalcj.AppMedia.utils.permission.PermissionResult;
 import com.toolsclass.chenjun.general.generalcj.AppMedia.utils.permission.Permissions;
 import com.toolsclass.chenjun.general.generalcj.R;
+import com.toolsclass.chenjun.general.generalcj.Utility.ActivivtyUtility;
 import com.toolsclass.chenjun.general.generalcj.Utility.PermissionUtils;
 import com.toolsclass.chenjun.general.generalcj.UtilityActivity.MainActivity;
 import com.toolsclass.chenjun.general.generalcj.solid.library.utils.ToastUtils;
@@ -229,6 +231,9 @@ public class SplashActivity extends BaseActivity implements ActivityCompat.OnReq
                     case PermissionUtils.CODE_WRITE_EXTERNAL_STORAGE:
                         ToastUtils.getInstance().showToast("Result Permission Grant CODE_WRITE_EXTERNAL_STORAGE");
                         break;
+                    case PermissionUtils.CODE_READ_LOGS:
+                        ToastUtils.getInstance().showToast("Result Permission Grant CODE_READ_LOGS");
+                        break;
                     default:
                         break;
                 }
@@ -241,7 +246,10 @@ public class SplashActivity extends BaseActivity implements ActivityCompat.OnReq
     @Override
     public void onRequestPermissionsResult(final int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
-        checkService();
-
+//        if (ActivivtyUtility.isActivity("com.toolsclass.chenjun.general.generalcj.UtilityActivity.MainActivity",SplashActivity.this)){
+//            startActivity(new Intent(SplashActivity.this, MainActivity.class));
+//        } else {
+            checkService();
+//        }
     }
 }

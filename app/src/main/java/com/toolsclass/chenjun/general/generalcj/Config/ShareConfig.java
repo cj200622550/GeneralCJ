@@ -19,4 +19,8 @@ public class ShareConfig {
      * 限制扫描最小文件
      */
     public static String SHARE_MOBILE_SCEN_FILE_SIZE = "MobileFileSize";
+    /**
+     * 设置系统信息-网络检测刷新时间
+     */
+    public static String SHARE_SYSTEM_CHECK_TIME = "SystemCheckTime";
 }
