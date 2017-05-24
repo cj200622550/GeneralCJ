@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@color/windowBackground"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="3dp"
+                skin:enable="true">
+
+                <RelativeLayout
+                    android:id="@+id/rl_1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dp"
+                    android:longClickable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10.0dip"
+                        android:text="清空聊天记录"
+                        android:textColor="@color/robot_common_text_color"
+                        android:textSize="16.0sp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dip"
+                        android:textColor="#FF9802"
+                        android:textSize="14.0sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="12.0dip"
+                        android:background="@drawable/robot_ic_arrow" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@color/windowBackground"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="3dp"
+                skin:enable="true">
+
+                <RelativeLayout
+                    android:id="@+id/rl_2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/robot_item_selector"
+                    android:longClickable="true">
+
+                    <TextView
+                        android:id="@+id/tv_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10.0dip"
+                        android:text="录音语言：普通话"
+                        android:textColor="@color/robot_common_text_color"
+                        android:textSize="16.0sp" />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@color/windowBackground"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="3dp"
+                skin:enable="true">
+
+                <RelativeLayout
+                    android:id="@+id/rl_3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/robot_item_selector"
+                    android:longClickable="true">
+
+                    <TextView
+                        android:id="@+id/tv_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10.0dip"
+                        android:text="朗读语言：普通话"
+                        android:textColor="@color/robot_common_text_color"
+                        android:textSize="16.0sp" />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@color/windowBackground"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="3dp"
+                skin:enable="true">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/rb_voice"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/robot_item_selector"
+                        android:checked="true"
+                        android:text="录音以语音形式发送"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.1dp"
+                        android:background="#D0D0D0" />
+
+                    <RadioButton
+                        android:id="@+id/rb_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/robot_item_selector"
+                        android:text="录音以文字形式发送"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+
+                </RadioGroup>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@color/windowBackground"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="3dp"
+                skin:enable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="回复内容直接朗读"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <com.toolsclass.chenjun.general.generalcj.view.UISwitchButton
+                        android:id="@+id/cb_speech"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

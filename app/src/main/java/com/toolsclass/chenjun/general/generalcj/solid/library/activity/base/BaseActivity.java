@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.toolsclass.chenjun.general.generalcj.R;
+
 import ren.solid.skinloader.base.SkinBaseActivity;
 
 /**
@@ -11,7 +13,7 @@ import ren.solid.skinloader.base.SkinBaseActivity;
  * Date:2016/3/30
  * Time:9:40
  */
-public abstract class BaseActivity extends SkinBaseActivity {
+public abstract class BaseActivity extends SkinBaseActivity implements View.OnClickListener {
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,11 @@ public abstract class BaseActivity extends SkinBaseActivity {
         Intent intent = new Intent(this, clazz);
         intent.putExtras(extras);
         startActivity(intent);
+
+    }
+
+    @Override
+    public void onClick(View arg0) {
 
     }
 

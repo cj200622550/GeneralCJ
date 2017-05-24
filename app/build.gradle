@@ -4,9 +4,30 @@ bugly {
     appId = 'ab1852e1ad'
     appKey = 'c5e6ee2d-0b2d-4f01-a916-01e454fe43e4'
 }
+repositories {
+    flatDir {
+        dir 'libs'
+    }
+}
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+
+    //配置签名文件路径和密码，这样debug版就直接用的正式签名而不是默认debug签名
+    signingConfigs {
+        release {
+            //供测试
+            //MD5: 19:32:47:EA:AE:E6:FD:8B:99:A9:29:3A:AA:E0:01:34
+            //SHA1: 2F:07:86:12:5A:9A:2E:ED:E9:E3:22:37:4B:8A:F9:27:A9:7C:C3:6A
+            //SHA256: A4:F9:9D:3A:63:C2:A3:C7:DE:69:F1:62:AA:88:FA:AB:F8:1C:62:45:04:81:B7:A9:91:18:9B:B1:1E:37:C3:B9
+            //签名算法名称: SHA256withRSA
+            storeFile file("GeneraCJ.jks")
+            storePassword "chenjun200622550"
+            keyAlias "50"
+            keyPassword "chenjun200622550"
+        }
+    }
+
     defaultConfig {
         applicationId "com.toolsclass.chenjun.general.generalcj"
         minSdkVersion 15
@@ -16,19 +37,50 @@ android {
 
         ndk {
             //设置支持的SO库架构
-            abiFilters 'armeabi' , 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            abiFilters 'armeabi' , 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a', 'mips', 'mips64'
         }
 
     }
 
 
     buildTypes {
+        debug {//debug版
+            minifyEnabled false //打包时混淆
+            signingConfig signingConfigs.release
+            debuggable true
+            jniDebuggable true
+            zipAlignEnabled true
+            minifyEnabled false
+            shrinkResources false
+        }
         release {
             // 开启混淆
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            debuggable false
+            jniDebuggable false
+            zipAlignEnabled true
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
         }
     }
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+
+        instrumentTest.setRoot('tests')
+
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 ext {
@@ -42,11 +94,21 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':library')
     compile 'com.jakewharton:butterknife:7.0.1'
-//    compile 'com.tencent.bugly:crashreport_upgrade:1.2.5'
+    //    compile 'com.tencent.bugly:crashreport_upgrade:1.2.5'
     // 腾讯Dbug 反馈
     compile 'com.tencent.bugly:crashreport:latest.release'
-//    compile 'com.zhy:okhttputils:2.6.2'
+    //    compile 'com.zhy:okhttputils:2.6.2'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile 'me.wcy:lrcview:1.4.1'
     compile files('libs/AMap_Location_1.3.3.jar')
+    // 机器人聊天需要jar包
+    // 网络请求框架
+    compile files('libs/afinal_0.5.1_bin.jar')
+    // html解析框架
+    compile files('libs/jsoup-1.8.1.jar')
+    // 讯飞语音识别
+    compile files('libs/Msc.jar')
+    compile files('libs/Sunflower.jar')
+    compile files('libs/dom4j-1.6.1.jar')
+    compile files('libs/gesture-imageview.jar')
 }

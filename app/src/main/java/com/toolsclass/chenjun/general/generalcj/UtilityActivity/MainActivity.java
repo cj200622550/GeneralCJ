@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.toolsclass.chenjun.general.generalcj.AppMedia.activity.MusicActivity;
+import com.toolsclass.chenjun.general.generalcj.AppRobotChat.fragment.RobotChatFragment;
 import com.toolsclass.chenjun.general.generalcj.AppSystemInfo.fragment.SystemystemInfoFragment;
 import com.toolsclass.chenjun.general.generalcj.R;
 import com.toolsclass.chenjun.general.generalcj.Setting.fragment.SettingFragment;
@@ -118,11 +119,9 @@ public class MainActivity extends BaseActivity {
                         break;
                     case R.id.navigation_item_robot_chat:
                         mToolbar.setTitle(getString(R.string._string_robot_chat));
-//                        switchFragment(GanHuoFragment.class);
+                        switchFragment(RobotChatFragment.class);
                         break;
                     case R.id.navigation_item_media:
-//                        mToolbar.setTitle(getString(R.string._string_media));
-//                        switchFragment(BlogFragment.class);
                         Intent intent = new Intent();
                         intent.setClass(getApplicationContext(), MusicActivity.class);
                         intent.putExtras(getIntent());

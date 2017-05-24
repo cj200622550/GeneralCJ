@@ -34,12 +34,14 @@ public class SettingFragment extends BaseFragment {
         List<String> titles = new ArrayList<>();
         titles.add(getString(R.string._string_setting_system));
         titles.add(getString(R.string._string_setting_media));
+        titles.add(getString(R.string._string_setting_robot));
 
         SettingPagerAdapter viewPagerAdapter = new SettingPagerAdapter(getMContext(), titles, getChildFragmentManager());
         mViewPager.setAdapter(viewPagerAdapter);
         mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         mTabLayout.addTab(mTabLayout.newTab().setText(getString(R.string._string_setting_system)));
         mTabLayout.addTab(mTabLayout.newTab().setText(getString(R.string._string_setting_media)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(getString(R.string._string_setting_robot)));
         mTabLayout.setupWithViewPager(mViewPager);
 
         dynamicAddSkinView(mTabLayout, "tabIndicatorColor", R.color.colorAccent); // 导航横线颜色

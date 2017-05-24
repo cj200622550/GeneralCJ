@@ -20,6 +20,7 @@
 
     <string name="_string_setting_media">音乐</string>
     <string name="_string_setting_system">系统</string>
+    <string name="_string_setting_robot">聊天</string>
     <string name="_string_setting_system_info_cpu_check">CPU检测</string>
     <string name="_string_setting_system_net_check">网络检测</string>
     <string name="_string_setting_system_info_service_check">运行服务</string>

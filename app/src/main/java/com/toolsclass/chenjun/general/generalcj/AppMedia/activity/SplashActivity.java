@@ -36,6 +36,8 @@ import com.toolsclass.chenjun.general.generalcj.solid.library.utils.ToastUtils;
 import java.io.File;
 import java.util.Calendar;
 
+import static com.toolsclass.chenjun.general.generalcj.Utility.PermissionUtils.CODE_ACCESS_NETWORK_STATE;
+
 public class SplashActivity extends BaseActivity implements ActivityCompat.OnRequestPermissionsResultCallback{
     private static final String SPLASH_FILE_NAME = "splash";
 
@@ -233,6 +235,21 @@ public class SplashActivity extends BaseActivity implements ActivityCompat.OnReq
                         break;
                     case PermissionUtils.CODE_READ_LOGS:
                         ToastUtils.getInstance().showToast("Result Permission Grant CODE_READ_LOGS");
+                        break;
+                    case PermissionUtils.CODE_ACCESS_NETWORK_STATE:
+                        ToastUtils.getInstance().showToast("Result Permission Grant CODE_ACCESS_NETWORK_STATE");
+                        break;
+                    case PermissionUtils.CODE_CHANGE_NETWORK_STATE:
+                        ToastUtils.getInstance().showToast("Result Permission Grant CODE_CHANGE_NETWORK_STATE");
+                        break;
+                    case PermissionUtils.CODE_READ_CONTACTS:
+                        ToastUtils.getInstance().showToast("Result Permission Grant CODE_READ_CONTACTS");
+                        break;
+                    case PermissionUtils.CODE_WRITE_SETTINGS:
+                        ToastUtils.getInstance().showToast("Result Permission Grant CODE_WRITE_SETTINGS");
+                        break;
+                    case PermissionUtils.CODE_MOUNT_UNMOUNT_FILESYSTEMS:
+                        ToastUtils.getInstance().showToast("Result Permission Grant CODE_MOUNT_UNMOUNT_FILESYSTEMS");
                         break;
                     default:
                         break;

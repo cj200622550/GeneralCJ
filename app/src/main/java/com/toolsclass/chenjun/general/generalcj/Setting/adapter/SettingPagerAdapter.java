@@ -7,12 +7,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.toolsclass.chenjun.general.generalcj.R;
 import com.toolsclass.chenjun.general.generalcj.Setting.fragment.MediaFragment;
+import com.toolsclass.chenjun.general.generalcj.Setting.fragment.RobotFragment;
 import com.toolsclass.chenjun.general.generalcj.Setting.fragment.SystemFragment;
-import com.toolsclass.chenjun.general.generalcj.fragment.BookFragment;
-import com.toolsclass.chenjun.general.generalcj.fragment.MovieFragment;
-import com.toolsclass.chenjun.general.generalcj.fragment.MovieHitFragment;
-import com.toolsclass.chenjun.general.generalcj.fragment.MovieSoonFragment;
-import com.toolsclass.chenjun.general.generalcj.fragment.MovieTopFragment;
 
 import java.util.List;
 
@@ -53,6 +49,8 @@ public class SettingPagerAdapter extends FragmentPagerAdapter {
             result = ViewUtils.createFragment(SystemFragment.class,false); // 进入到系统设置界面
         } else if (title.equals(mContext.getString(R.string._string_setting_media))) {
             result = ViewUtils.createFragment(MediaFragment.class,false); // 进入到音乐设置界面
+        } else if (title.equals(mContext.getString(R.string._string_setting_robot))) {
+            result = ViewUtils.createFragment(RobotFragment.class,false); // 进入到音乐设置界面
         }
         return result;
 
